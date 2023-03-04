@@ -9,7 +9,7 @@ class LandingPage extends Component
     public $email;
     public function subscribe()
     {
-        
+        ds($this->email);
     }
 
     public function render()
