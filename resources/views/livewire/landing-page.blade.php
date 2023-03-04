@@ -1,4 +1,4 @@
-<div x-data="{showSubscribe: false}" class="flex flex-col bg-indigo-900 w-100 h-screen">
+<div x-data="{showSubscribe: false, showSuccess: true}" class="flex flex-col bg-indigo-900 w-100 h-screen">
     <nav class="flex pt-5 justify-between container mx-auto text-indigo-200">
         <a class="text-4xl font-bo" href="/">
             <x-application-logo class="w-16 h-16 fill-current"></x-application-logo>
@@ -32,6 +32,16 @@
                 <span class="text-gray-100 text-xs">We will send you a confirmation email</span>
                 <x-primary-button class="px-2 py-3 mt-5 w-80 bg-blue-500 justify-center">Get In</x-primary-button>
             </form>
+        </div>
+    </div>
+    {{-- success --}}
+    <div x-show="showSuccess" @click.self="showSuccess = !showSuccess"
+        @keydown.escape.window="showSuccess = !showSuccess"
+        class="flex fixed top-0 bg-gray-900 bg-opacity-60 items-center w-full h-full">
+        <div class=" bg-green-500 m-auto rounded-xl shadow-2xl p-8">
+            <p class="text-white text-9xl animate-pulse font-extrabold text-center">&check;</p>
+            <p class="text-white text-5xl font-extrabold text-center mt-16">Great!</p>
+            <p class="text-white text-3xl text-center">See you in your inbox</p>
         </div>
     </div>
 </div>
