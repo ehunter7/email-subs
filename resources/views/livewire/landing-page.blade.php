@@ -26,7 +26,13 @@
         <form wire:submit.prevent="subscribe" class="flex flex-col items-center p-24">
             <x-text-input wire:model="email" class="px-5 py-3 w-80 border border-blue-400" type="email" name="email"
                 placeholder="Email Address"></x-text-input>
-            <span class="text-gray-100 text-xs">We will send you a confirmation email</span>
+
+            <span class="text-gray-100 text-xs">
+                {{$errors->has('email')
+                ? $errors->first('email')
+                : 'We will send you a confirmation email'
+                }}
+            </span>
             <x-primary-button class="px-2 py-3 mt-5 w-80 bg-blue-500 justify-center">Get In</x-primary-button>
         </form>
     </x-modal>
